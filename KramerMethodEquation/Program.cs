@@ -35,43 +35,38 @@ namespace KramerMethodEquation
             }
             else
             {
-                Console.WriteLine("The determinant is zero. The system of linear equations has no unique solution.");
-                if (c1 == 0 && c2 == 0)
-                {
-                    Console.WriteLine("The system of linear equations has infinitely many solutions.");
-                }
-                else
-                {
-                    Console.WriteLine("The system of linear equations has no solution.");
-                }
+                Console.WriteLine("The system of linear equations has no unique solution.");
+                return;
             }
 
-            // Check line type of the first equation
+            // Check if the first line is parallel to the x-axis
             if (b1 == 0)
             {
-                Console.WriteLine("The first equation is a vertical line.");
+                Console.WriteLine("The first line is parallel to the x-axis.");
             }
+            // Check if the first line is parallel to the y-axis
             else if (a1 == 0)
             {
-                Console.WriteLine("The first equation is a horizontal line.");
+                Console.WriteLine("The first line is parallel to the y-axis.");
             }
             else
             {
-                Console.WriteLine("The first equation is a slanted line.");
+                Console.WriteLine("The first line is not parallel to either the x-axis or the y-axis.");
             }
 
-            // Check line type of the second equation
+            // Check if the second line is parallel to the x-axis
             if (b2 == 0)
             {
-                Console.WriteLine("The second equation is a vertical line.");
+                Console.WriteLine("The second line is parallel to the x-axis.");
             }
+            // Check if the second line is parallel to the y-axis
             else if (a2 == 0)
             {
-                Console.WriteLine("The second equation is a horizontal line.");
+                Console.WriteLine("The second line is parallel to the y-axis.");
             }
             else
             {
-                Console.WriteLine("The second equation is a slanted line.");
+                Console.WriteLine("The second line is not parallel to either the x-axis or the y-axis.");
             }
         }
     }
