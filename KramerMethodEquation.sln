@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KramerMethodEquation", "KramerMethodEquation\KramerMethodEquation.csproj", "{52F43BA8-CE3D-4CEA-9BC9-104806451ABF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F43BA8-CE3D-4CEA-9BC9-104806451ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F43BA8-CE3D-4CEA-9BC9-104806451ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F43BA8-CE3D-4CEA-9BC9-104806451ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F43BA8-CE3D-4CEA-9BC9-104806451ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE4C4421-FC0D-4AE9-A076-607DF602DF35}
+	EndGlobalSection
+EndGlobal
