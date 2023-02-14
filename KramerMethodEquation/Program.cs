@@ -6,7 +6,7 @@ namespace KramerMethodEquation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the coefficients of the first equation (ax + by = c):");
+            Console.WriteLine("Введите коэффициенты первого уравнения (ax + by = c):");
             Console.Write("a = ");
             double a1 = double.Parse(Console.ReadLine());
             Console.Write("b = ");
@@ -14,7 +14,7 @@ namespace KramerMethodEquation
             Console.Write("c = ");
             double c1 = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the coefficients of the second equation (dx + ey = f):");
+            Console.WriteLine("Введите коэффициенты второго уравнения (dx + ey = f):");
             Console.Write("d = ");
             double a2 = double.Parse(Console.ReadLine());
             Console.Write("e = ");
@@ -22,51 +22,68 @@ namespace KramerMethodEquation
             Console.Write("f = ");
             double c2 = double.Parse(Console.ReadLine());
 
+            SolveSystem(a1, b1, c1, a2, b2, c2);
+        }
+
+        private static void SolveSystem(double a1, double b1, double c1, double a2, double b2, double c2)
+        {
             double det = a1 * b2 - a2 * b1;
+            double detX = c1 * b2 - b1 * c2;
+            double detY = a1 * c2 - c1 * a2;
             double x, y;
 
             if (det != 0)
             {
                 x = (c1 * b2 - c2 * b1) / det;
                 y = (a1 * c2 - a2 * c1) / det;
-                Console.WriteLine("The solution of the system of linear equations is:");
+                Console.WriteLine("Решение системы линейных уравнений:");
                 Console.WriteLine("x = " + x);
                 Console.WriteLine("y = " + y);
             }
             else
             {
-                Console.WriteLine("The system of linear equations has no unique solution.");
-                return;
+                if (c1 == 0 && c2 == 0)
+                {
+                    Console.WriteLine("Система линейных уравнений имеет множество решений.");
+                }
+                else
+                {
+                    Console.WriteLine("Система линейных уравнений не имеет решений");
+                }
             }
 
-            // Check if the first line is parallel to the x-axis
-            if (b1 == 0)
+            Console.Write("Первая прямая:");
+            CheckLineType(a1, b1, c1);
+
+            Console.Write("Вторая прямая:");
+            CheckLineType(a2, b2, c2);
+        }
+
+        private static void CheckLineType(double a, double b, double c)
+        {
+            if(a == 0 && b != 0 && c != 0)
             {
-                Console.WriteLine("The first line is parallel to the x-axis.");
+                Console.WriteLine("Прямая параллельна оси Oy");
             }
-            // Check if the first line is parallel to the y-axis
-            else if (a1 == 0)
+            else if(a != 0 && b != 0)
             {
-                Console.WriteLine("The first line is parallel to the y-axis.");
+                Console.WriteLine("Прямая общего положения");
+            }
+            else if(a != 0 && b == 0 && c != 0)
+            {
+                Console.WriteLine("Прямая параллельна оси Ox");
+            }
+            else if(a != 0 && b == 0 && c == 0)
+            {
+                Console.WriteLine("Ось Ox");
+            }
+            else if (a == 0 && b != 0 && c == 0)
+            {
+                Console.WriteLine("Ось Oy");
             }
             else
             {
-                Console.WriteLine("The first line is not parallel to either the x-axis or the y-axis.");
-            }
-
-            // Check if the second line is parallel to the x-axis
-            if (b2 == 0)
-            {
-                Console.WriteLine("The second line is parallel to the x-axis.");
-            }
-            // Check if the second line is parallel to the y-axis
-            else if (a2 == 0)
-            {
-                Console.WriteLine("The second line is parallel to the y-axis.");
-            }
-            else
-            {
-                Console.WriteLine("The second line is not parallel to either the x-axis or the y-axis.");
+                Console.WriteLine("Множество точек");
             }
         }
     }
