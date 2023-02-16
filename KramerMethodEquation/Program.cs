@@ -7,22 +7,36 @@ namespace KramerMethodEquation
         static void Main(string[] args)
         {
             Console.WriteLine("Введите коэффициенты первого уравнения (ax + by = c):");
-            Console.Write("a = ");
-            double a1 = double.Parse(Console.ReadLine());
-            Console.Write("b = ");
-            double b1 = double.Parse(Console.ReadLine());
-            Console.Write("c = ");
-            double c1 = double.Parse(Console.ReadLine());
+
+            double a1 = ValidateInput("a");
+            double b1 = ValidateInput("b");
+            double c1 = ValidateInput("c");
 
             Console.WriteLine("Введите коэффициенты второго уравнения (dx + ey = f):");
-            Console.Write("d = ");
-            double a2 = double.Parse(Console.ReadLine());
-            Console.Write("e = ");
-            double b2 = double.Parse(Console.ReadLine());
-            Console.Write("f = ");
-            double c2 = double.Parse(Console.ReadLine());
+
+            double a2 = ValidateInput("d");
+            double b2 = ValidateInput("e");
+            double c2 = ValidateInput("f");
 
             SolveSystem(a1, b1, c1, a2, b2, c2);
+        }
+
+        private static double ValidateInput(string variableName)
+        {
+            double value;
+            while (true)
+            {
+                Console.Write($"{variableName} = ");
+                string input = Console.ReadLine();
+                if (double.TryParse(input, out value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный ввод. Попробуйте еще раз.");
+                }
+            }
         }
 
         private static void SolveSystem(double a1, double b1, double c1, double a2, double b2, double c2)
